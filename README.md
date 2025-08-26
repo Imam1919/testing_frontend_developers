@@ -67,7 +67,7 @@ There is **no backend** connected in this version — all the data you see comes
 
 ## 🔮 Next Steps
 
-* Later, this frontend will connect to a **Node.js / Express backend + database**.
+* sharing picturs for you work disctop, phone and tablet views
 * For now, focus is **only on frontend look & feel**.
 
 ---
