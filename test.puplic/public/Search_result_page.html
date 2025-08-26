@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Malaysia Travel Gate - Find Your Perfect Tour</title>
+  <link rel="stylesheet" href="search_result_page.css" />
+  <!-- Swiper styles -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+<!-- Custom styles -->
+<link rel="stylesheet" href="agencies_slider.css" />
+<link rel="stylesheet" href="footer.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <div class="logo">MTG</div>
+      <div class="nav-links">
+        <a href="countries.html">Tours</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+      <div class="auth-buttons">
+        <button class="btn btn-login">🌐 English</button>
+      <button class="btn btn-login" onclick="window.location.href='login.html'">Login</button>
+     <button class="btn btn-register" onclick="window.location.href='register.html'">Register</button>
+      </div>
+    </div>
+  </div>
+    <!-- Hero Section with Search -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Pick Your Best Experience</h1>
+            <p>Discover amazing tours across Malaysia with unbeatable prices</p>
+            
+         <div class="search-container">
+                <form class="search-form" id="searchForm">
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country" name="country">
+                            <option value="">Select a Country</option>
+                            <!-- Countries will be dynamically loaded here -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region">Select Region</label>
+                        <select id="region" name="region" disabled>
+                            <option value="">Select a Region</option>
+                            <!-- Regions will be dynamically loaded based on country selection -->
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Departure Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                    
+                    <button type="submit" class="search-btn">🔍 Search Tours</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+  <!-- Results Section -->
+  <div class="results-section">
+    <div class="results-layout">
+
+      <!-- Main Tour List Area -->
+      <div class="results-main">
+        <div class="results-header">
+          <h2 id="resultsTitle">Discover Amazing Tours</h2>
+          <p class="results-count" id="resultsCount">Search for tours to see available options</p>
+        </div>
+
+        <div class="sort-controls" id="sortControls" style="display: none;">
+          <div>
+            <label for="sortBy">Sort by:</label>
+            <select id="sortBy">
+              <option value="price_low">Price: Low to High</option>
+              <option value="price_high">Price: High to Low</option>
+              <option value="date_earliest">Date: Earliest First</option>
+              <option value="date_latest">Date: Latest First</option>
+              <option value="duration_short">Duration: Shortest</option>
+              <option value="duration_long">Duration: Longest</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="loadingSpinner" class="loading" style="display: none;">
+          <div>🔄 Searching for tours...</div>
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+          <h3>No tours found</h3>
+          <p>Try adjusting your search criteria to find more options.</p>
+        </div>
+
+        <div class="tours-grid" id="toursGrid">
+          <!-- Tour cards dynamically rendered here -->
+           
+        </div>
+        
+        
+      </div>
+
+      <!-- Right Sidebar -->
+      <div class="results-sidebar">
+        <div class="must-visit-box">
+            <h3>Must Visit Places</h3>
+            <ul id="mustVisitList" class="must-visit-list">
+            <li>Loading...</li>
+            </ul>
+        </div>
+        </div>
+
+
+    </div>
+  </div>
+
+  <section class="partner-section">
+  <h2 class="partner-title">Our Partner</h2>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper" id="agencySlider"></div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="search_serult_page.js"></script>
+  <script src="footer.js" defer></script>
+  <script type="module">
+  import { loadAgencySlider } from './agencies_slider.js';
+  loadAgencySlider({
+    containerSelector: '#agencySlider',
+    swiperSelector: '.mySwiper'
+  });
+</script>
+</body>
+</html>
